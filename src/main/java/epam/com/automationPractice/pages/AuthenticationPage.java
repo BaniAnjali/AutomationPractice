@@ -19,6 +19,4 @@ public class AuthenticationPage {
 		createAccountBtn.click();
 		}
 	
-	
-
-}
+	}

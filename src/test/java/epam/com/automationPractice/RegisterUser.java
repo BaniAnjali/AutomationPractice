@@ -6,8 +6,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import epam.com.automationPractice.pages.AddToCartPage;
 import epam.com.automationPractice.pages.AuthenticationPage;
 import epam.com.automationPractice.pages.HomePage;
+import epam.com.automationPractice.pages.LoginPage;
 import epam.com.automationPractice.pages.PersnalInfoPage;
 
 public class RegisterUser {
@@ -15,6 +17,8 @@ public class RegisterUser {
 	private HomePage homePage;
 	private AuthenticationPage authenticationPage;
 	private PersnalInfoPage persnalInfoPage;
+	private LoginPage loginPage;
+	private AddToCartPage addToCartPage;
 	
 
 	@BeforeTest
@@ -23,7 +27,7 @@ public class RegisterUser {
 		DriverSetup.launchApplication(driver, "http://automationpractice.com");
 	}
 
-	@Test(priority = 1)
+	/*@Test(priority = 1)
 	public void chooseSignIn() {
 		homePage = new HomePage(driver);
 		homePage.clickSignIn();
@@ -41,11 +45,24 @@ public class RegisterUser {
 	public void persnalInformation() {
 		
 		persnalInfoPage=new PersnalInfoPage(driver);
-		persnalInfoPage.persnalInformation("Anjali", "Bani", "1111", "10", "July", "2019", "epam", "Knowladge City", "Opposite inorbit mall","Hyderabad", "Telangna","50032","India","manidspace","1234567876","453645678", "in orbit mall");
+		persnalInfoPage.persnalInformation("Anjali", "Bani", "11111", "10", "July", "2019", "epam", "Knowladge City", "Opposite inorbit mall","Hyderabad", "Telangna","50032","India","manidspace","1234567876","453645678", "in orbit mall");
 		
 		
 	}
+	*/
 	
+	@Test(priority = 1)
+	public void chooseLogin() {
+		loginPage=new LoginPage(driver);
+		loginPage.loginClick("anjali_bani@epam.com","11111");
+		
+		}
+
+	@Test(priority = 2)
+	public void addProduct() {
+		addToCartPage = new AddToCartPage(driver);
+		addToCartPage.proccedForCheckOut();
+	}
 	
 	
 
