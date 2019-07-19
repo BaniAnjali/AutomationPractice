@@ -20,9 +20,7 @@ public class AddToCartPage {
 		categoryTypeTab.click();
 		
        ScrollByVisibleElement scroll=new ScrollByVisibleElement();
-		
-       /*WebElement product=driver.findElement(By.xpath("//*[@id=\"center_column\"]/ul/li[1]/div/div[1]/div/a[1]/img"));
-       product.click();*/
+	
        
        WebElement product=driver.findElement(By.xpath("//a[@title='Faded Short Sleeve T-shirts']"));
        product.click();
@@ -31,7 +29,11 @@ public class AddToCartPage {
 		WebDriverWait wait = new WebDriverWait(driver, 15);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("Submit")));
 		
-		driver.findElement(By.name("Submit")).click();
+		 driver.switchTo().frame("fancybox-frame1563355183970"); // replace by your frame name
+		     driver.findElement(By.className("exclusive")).click();
+		   // String parentWindow=driver.getWindowHandle();
+			//Go back to Parent window
+		   // driver.switchTo().window(parentWindow);
 
 	}
 
